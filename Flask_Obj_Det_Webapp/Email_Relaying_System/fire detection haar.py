@@ -13,15 +13,15 @@ TEXT = 'Please check for possible fire'
 message = 'Subject: {}\n\n{}'.format(SUBJECT, TEXT)
 Email_Stat = False
 def send_email_function(image_path):
-    recEmail = 'eshan5441@gmail.com'
+    recEmail = 'EMAIL@GMAIL.COM'
     recEmail = recEmail.lower()
     with open(image_path, 'rb') as f:
         img_data = f.read()
     image = MIMEImage(img_data, name = image_path)
     msg = MIMEMultipart()
     msg['Subject'] = SUBJECT
-    msg['From'] = 'eshan5441@gmail.com'
-    msg['To'] = 'eshan5441@gmail.com'
+    msg['From'] = 'EMAIL@GMAIL.COM'
+    msg['To'] = 'EMAIL@GMAIL.COM'
 
     text = MIMEText("Test")
     msg.attach(text)
@@ -31,8 +31,8 @@ def send_email_function(image_path):
         server = smtplib.SMTP('smtp.office365.com', 587)
         server.ehlo()
         server.starttls()
-        server.login('eshan5441@gmail.com', 'Lordeshan@99')
-        server.sendmail('eshan5441@gmail.com', recEmail, msg.as_string())
+        server.login('EMAIL@GAMIL.COM', 'PW')
+        server.sendmail('EMAIL@GMAIL.COM', recEmail, msg.as_string())
         print('sent')
         server.close()
     except Exception as e:
